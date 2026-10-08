@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Himalayan Agriculture — a real-photo farm portfolio from Himachal Pradesh.">
+<title>Himalayan Agriculture | Farm Dashboard</title>
+<style>
+:root{--forest:#0b2b1d;--forest2:#071c13;--sage:#dfe9df;--cream:#f7f4eb;--paper:#fffdf8;--gold:#c8a75b;--ink:#17221c;--muted:#68736c;--line:#dbe3db}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button{font:inherit}a{text-decoration:none;color:inherit}img{display:block;width:100%}
+.wrap{width:min(1240px,92%);margin:auto}.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:#071c13e8;backdrop-filter:blur(18px);color:#fff;border-bottom:1px solid #fff1}.navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:950;letter-spacing:.08em;display:flex;align-items:center;gap:11px;font-size:14px}.logo{width:42px;height:42px;border:1px solid #ffffff55;border-radius:50%;display:grid;place-items:center;color:#e6cd8d;font-size:12px}.navlinks{display:flex;gap:24px;font-size:13px;color:#dce7df}.navlinks a:hover{color:#e4c982}.navcta{background:var(--gold);color:var(--forest);padding:11px 17px;border-radius:999px;font-weight:900;font-size:13px}
+.hero{min-height:92vh;position:relative;color:#fff;display:flex;align-items:end;overflow:hidden}.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#06180fe8 0%,#06180f8c 47%,#06180f20 100%),url("images/77329.jpg") center/cover}.hero-content{position:relative;padding:150px 0 90px;max-width:830px}.kicker{font-size:11px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#e3ce91}.hero h1{font-size:clamp(52px,8vw,94px);line-height:.9;letter-spacing:-.065em;margin:18px 0 24px}.hero p{font-size:19px;line-height:1.6;color:#eef5ef;max-width:690px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:900;font-size:14px}.btn-primary{background:var(--gold);color:var(--forest)}.btn-ghost{border:1px solid #fff5;color:#fff;background:#ffffff10}
+.dashboard-strip{position:relative;margin-top:-42px;z-index:5}.strip{background:var(--paper);border:1px solid var(--line);border-radius:25px;box-shadow:0 25px 70px #183c281c;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}.metric{padding:24px 26px;border-right:1px solid var(--line)}.metric:last-child{border:0}.metric b{display:block;font-size:25px;color:var(--forest)}.metric span{font-size:13px;color:var(--muted)}
+section{padding:92px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}.section-head h2{font-size:clamp(35px,5vw,58px);line-height:1;letter-spacing:-.045em;margin:8px 0 0}.section-lead{max-width:620px;color:var(--muted);font-size:16px}
+.story{background:var(--paper)}.storygrid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}.storyimg{height:610px;border-radius:28px;overflow:hidden}.storyimg img{height:100%;object-fit:cover}.storycopy p{color:var(--muted);font-size:17px}.facts{display:grid;gap:0;margin-top:25px;border-top:1px solid var(--line)}.fact{display:grid;grid-template-columns:45px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.factno{color:var(--gold);font-weight:950}.fact b{font-size:15px}.fact span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.products{background:#eaf0e9}.product-dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:var(--paper);border-radius:23px;overflow:hidden;border:1px solid var(--line);position:relative}.product.feature{grid-column:span 2;grid-row:span 2}.product img{height:230px;object-fit:cover}.product.feature img{height:100%;min-height:480px}.product:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 48%,#071c138c);pointer-events:none}.product-text{position:absolute;left:20px;right:20px;bottom:18px;color:#fff;z-index:2}.product-text small{text-transform:uppercase;letter-spacing:.15em;font-size:10px;font-weight:900;color:#e7d08f}.product-text h3{margin:5px 0 0;font-size:23px}.product-text p{margin:2px 0 0;font-size:12px;color:#eaf0eb}
+.portfolio{background:var(--paper)}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}.filter{border:1px solid #cbd6cc;background:#fff;padding:9px 14px;border-radius:999px;color:var(--forest);font-weight:850;font-size:12px;cursor:pointer}.filter.active{background:var(--forest);color:#fff;border-color:var(--forest)}.photogrid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:105px;gap:12px}.photo-card{position:relative;border-radius:18px;overflow:hidden;min-height:100px}.photo-card:nth-child(1),.photo-card:nth-child(8),.photo-card:nth-child(14){grid-column:span 5;grid-row:span 4}.photo-card:nth-child(2),.photo-card:nth-child(5),.photo-card:nth-child(10),.photo-card:nth-child(16){grid-column:span 3;grid-row:span 3}.photo-card:nth-child(3),.photo-card:nth-child(6),.photo-card:nth-child(9),.photo-card:nth-child(13){grid-column:span 4;grid-row:span 3}.photo-card:nth-child(4),.photo-card:nth-child(7),.photo-card:nth-child(11),.photo-card:nth-child(12),.photo-card:nth-child(15),.photo-card:nth-child(17){grid-column:span 4;grid-row:span 4}.photo-card.hide{display:none}.photo-open{padding:0;border:0;width:100%;height:100%;cursor:pointer;position:relative;background:#ddd;display:block;text-align:left}.photo-open img{height:100%;object-fit:cover;transition:transform .45s}.photo-open:hover img{transform:scale(1.045)}.photo-overlay{position:absolute;left:0;right:0;bottom:0;padding:30px 15px 14px;color:#fff;background:linear-gradient(transparent,#071c13d9);display:block}.photo-overlay small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#e6ce8c;font-weight:900}.photo-overlay b{display:block;font-size:14px;margin-top:2px}
+.videos{background:#eaf0e9}.videogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.video-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden}.video-card video{width:100%;height:270px;object-fit:cover;background:#101713}.video-card div{padding:18px}.video-card small{font-size:9px;letter-spacing:.15em;color:#7b887f;font-weight:900}.video-card h3{margin:5px 0 0}
+.contact{background:var(--forest2);color:#fff}.contactgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}.contact h2{font-size:clamp(38px,5vw,65px);line-height:1;letter-spacing:-.05em;margin:10px 0 20px}.contact p{color:#cbd8cf;max-width:620px}.contactbox{border:1px solid #ffffff20;background:#ffffff09;border-radius:25px;padding:25px}.contactline{padding:14px 0;border-bottom:1px solid #ffffff18}.contactline:last-child{border:0}.contactline small{display:block;color:#9fb1a5;margin-bottom:3px}
+.footer{background:#04100b;color:#94a79b;padding:24px 0;font-size:12px}.modal{position:fixed;inset:0;background:#000d;z-index:100;display:none;place-items:center;padding:25px}.modal.open{display:grid}.modal img{max-width:94vw;max-height:88vh;width:auto;border-radius:14px}.close{position:absolute;top:12px;right:25px;border:0;background:none;color:#fff;font-size:42px;cursor:pointer}
+@media(max-width:950px){.navlinks{display:none}.strip{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.storygrid,.contactgrid{grid-template-columns:1fr}.product-dashboard{grid-template-columns:repeat(2,1fr)}.product.feature{grid-column:span 2}.videogrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){section{padding:65px 0}.strip,.product-dashboard,.videogrid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.product.feature{grid-column:span 1}.product.feature img{min-height:300px}.photogrid{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.photo-card,.photo-card:nth-child(n){grid-column:span 1;grid-row:span 1}.photo-card:nth-child(1),.photo-card:nth-child(8),.photo-card:nth-child(14),.photo-card:nth-child(17){grid-column:span 2}.hero-content{padding:130px 0 65px}.hero h1{font-size:52px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin">
+<a class="brand" href="#home"><span class="logo">HA</span>HIMALAYAN AGRICULTURE</a>
+<nav class="navlinks"><a href="#story">Our Farm</a><a href="#products">Products</a><a href="#portfolio">Photos</a><a href="#videos">Videos</a><a href="#contact">Contact</a></nav>
+<a class="navcta" href="https://wa.me/917559699891" target="_blank">WhatsApp</a>
+</div></header>
+<main id="home">
+<section class="hero"><div class="wrap hero-content">
+<div class="kicker">Himachal Pradesh • Real Farm Photography</div>
+<h1>Grown in the hills.<br>Shared with you.</h1>
+<p>A professional visual showcase of Himalayan Agriculture — our orchards, flowers, mushrooms, crops and the people behind the work.</p>
+<div class="actions"><a class="btn btn-primary" href="#products">Explore the farm</a><a class="btn btn-ghost" href="#portfolio">View all photos</a></div>
+</div></section>
+<div class="dashboard-strip"><div class="wrap"><div class="strip">
+<div class="metric"><b>17 Photos</b><span>Original farm photography</span></div>
+<div class="metric"><b>3 Videos</b><span>Harvest & cultivation stories</span></div>
+<div class="metric"><b>Flowers</b><span>Carnations, lilies & tulips</span></div>
+<div class="metric"><b>Orchards + Mushrooms</b><span>Himalayan farm portfolio</span></div>
+</div></div></div>
+<section class="story" id="story"><div class="wrap storygrid">
+<div class="storyimg"><img src="images/77327.jpg" alt="Himalayan farm family"></div>
+<div class="storycopy"><div class="kicker">Our Farm</div><h2>People, crops and seasons — shown through your real photographs.</h2>
+<p>This dashboard is built around the photographs you uploaded, rather than generic stock images. Visitors can see the farm as it actually looks and explore different parts of your agricultural work.</p>
+<div class="facts">
+<div class="fact"><span class="factno">01</span><div><b>Apple orchards</b><span>Apple trees, fruit and blossom from the Himalayan orchard.</span></div></div>
+<div class="fact"><span class="factno">02</span><div><b>Flower cultivation</b><span>Carnations, lilies and tulips shown in real farm conditions.</span></div></div>
+<div class="fact"><span class="factno">03</span><div><b>Mushroom farming</b><span>Harvesting and sorting activities captured on the farm.</span></div></div>
+</div></div></div></section>
+<section class="products" id="products"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Farm Dashboard</div><h2>Explore what we grow</h2></div><p class="section-lead">A clean product-style dashboard using your own farm images as the visual identity.</p></div>
+<div class="product-dashboard">
+<article class="product feature"><img src="images/16964.jpg" alt="Carnation greenhouse"><div class="product-text"><small>Featured crop</small><h3>Carnations</h3><p>Protected flower cultivation from the farm.</p></div></article>
+<article class="product"><img src="images/77329.jpg" alt="Apple orchard and farmer"><div class="product-text"><small>Orchard</small><h3>Himalayan Apples</h3><p>Orchard life and seasonal fruit.</p></div></article>
+<article class="product"><img src="images/77322.jpg" alt="Button mushroom harvest"><div class="product-text"><small>Harvest</small><h3>Mushrooms</h3><p>Fresh mushroom harvesting.</p></div></article>
+<article class="product"><img src="images/77326.jpg" alt="Lily cultivation"><div class="product-text"><small>Flowers</small><h3>Lilies</h3><p>Flower cultivation at the farm.</p></div></article>
+<article class="product"><img src="images/77325.jpg" alt="Yellow tulips"><div class="product-text"><small>Seasonal</small><h3>Tulips</h3><p>Bright seasonal tulip cultivation.</p></div></article>
+<article class="product"><img src="images/77323.jpg" alt="Mushroom sorting"><div class="product-text"><small>Farm work</small><h3>Mushroom Sorting</h3><p>Harvest handling and sorting.</p></div></article>
+</div>
+</div></section>
+<section class="portfolio" id="portfolio"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Original Photography</div><h2>The complete farm gallery</h2></div><p class="section-lead">All of the uploaded photographs are included below. Click any image to view it larger.</p></div>
+<div class="filters"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Orchards">Orchards</button><button class="filter" data-filter="Flowers">Flowers</button><button class="filter" data-filter="Mushrooms">Mushrooms</button><button class="filter" data-filter="Our Farm">Our Farm</button><button class="filter" data-filter="Crops">Crops</button></div>
+<div class="photogrid"><article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/16964.jpg" aria-label="Open Carnation greenhouse"><img src="images/16964.jpg" alt="Carnation greenhouse" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Carnation greenhouse</b></span></button></article>
+<article class="photo-card" data-category="Mushrooms"><button class="photo-open" data-full="images/77322.jpg" aria-label="Open Button mushroom harvest"><img src="images/77322.jpg" alt="Button mushroom harvest" loading="lazy"><span class="photo-overlay"><small>Mushrooms</small><b>Button mushroom harvest</b></span></button></article>
+<article class="photo-card" data-category="Mushrooms"><button class="photo-open" data-full="images/77323.jpg" aria-label="Open Mushroom sorting"><img src="images/77323.jpg" alt="Mushroom sorting" loading="lazy"><span class="photo-overlay"><small>Mushrooms</small><b>Mushroom sorting</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77325.jpg" aria-label="Open Yellow tulips"><img src="images/77325.jpg" alt="Yellow tulips" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Yellow tulips</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77326.jpg" aria-label="Open Lily cultivation"><img src="images/77326.jpg" alt="Lily cultivation" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Lily cultivation</b></span></button></article>
+<article class="photo-card" data-category="Our Farm"><button class="photo-open" data-full="images/77327.jpg" aria-label="Open Himalayan farm family"><img src="images/77327.jpg" alt="Himalayan farm family" loading="lazy"><span class="photo-overlay"><small>Our Farm</small><b>Himalayan farm family</b></span></button></article>
+<article class="photo-card" data-category="Orchards"><button class="photo-open" data-full="images/77329.jpg" aria-label="Open Apple orchard &amp; farmer"><img src="images/77329.jpg" alt="Apple orchard &amp; farmer" loading="lazy"><span class="photo-overlay"><small>Orchards</small><b>Apple orchard &amp; farmer</b></span></button></article>
+<article class="photo-card" data-category="Orchards"><button class="photo-open" data-full="images/77330.jpg" aria-label="Open Apple orchard"><img src="images/77330.jpg" alt="Apple orchard" loading="lazy"><span class="photo-overlay"><small>Orchards</small><b>Apple orchard</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77331.jpg" aria-label="Open Yellow tulip close-up"><img src="images/77331.jpg" alt="Yellow tulip close-up" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Yellow tulip close-up</b></span></button></article>
+<article class="photo-card" data-category="Crops"><button class="photo-open" data-full="images/77332.jpg" aria-label="Open Farm crop"><img src="images/77332.jpg" alt="Farm crop" loading="lazy"><span class="photo-overlay"><small>Crops</small><b>Farm crop</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77333.jpg" aria-label="Open Carnation greenhouse"><img src="images/77333.jpg" alt="Carnation greenhouse" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Carnation greenhouse</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77334.jpg" aria-label="Open Carnation cultivation"><img src="images/77334.jpg" alt="Carnation cultivation" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Carnation cultivation</b></span></button></article>
+<article class="photo-card" data-category="Orchards"><button class="photo-open" data-full="images/77335.jpg" aria-label="Open Himalayan apples"><img src="images/77335.jpg" alt="Himalayan apples" loading="lazy"><span class="photo-overlay"><small>Orchards</small><b>Himalayan apples</b></span></button></article>
+<article class="photo-card" data-category="Orchards"><button class="photo-open" data-full="images/77336.jpg" aria-label="Open Apple harvest"><img src="images/77336.jpg" alt="Apple harvest" loading="lazy"><span class="photo-overlay"><small>Orchards</small><b>Apple harvest</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77337.jpg" aria-label="Open Carnation farm"><img src="images/77337.jpg" alt="Carnation farm" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Carnation farm</b></span></button></article>
+<article class="photo-card" data-category="Flowers"><button class="photo-open" data-full="images/77338.jpg" aria-label="Open Carnation field"><img src="images/77338.jpg" alt="Carnation field" loading="lazy"><span class="photo-overlay"><small>Flowers</small><b>Carnation field</b></span></button></article>
+<article class="photo-card" data-category="Orchards"><button class="photo-open" data-full="images/d22ec93d-639f-43e6-b83b-edbfbc60c771-1_all_88.jpg" aria-label="Open Apple blossom"><img src="images/d22ec93d-639f-43e6-b83b-edbfbc60c771-1_all_88.jpg" alt="Apple blossom" loading="lazy"><span class="photo-overlay"><small>Orchards</small><b>Apple blossom</b></span></button></article></div>
+</div></section>
+<section class="videos" id="videos"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Original Videos</div><h2>Farm in motion</h2></div><p class="section-lead">Your uploaded farm videos are included directly in the dashboard.</p></div>
+<div class="videogrid"><article class="video-card"><video controls playsinline preload="metadata" src="videos/mushroom-harvest.mp4"></video><div><small>ORIGINAL FARM VIDEO</small><h3>Mushroom harvesting</h3></div></article>
+<article class="video-card"><video controls playsinline preload="metadata" src="videos/farm-video-1.mp4"></video><div><small>ORIGINAL FARM VIDEO</small><h3>Farm story</h3></div></article>
+<article class="video-card"><video controls playsinline preload="metadata" src="videos/farm-video-2.mp4"></video><div><small>ORIGINAL FARM VIDEO</small><h3>Flower farm</h3></div></article></div>
+</div></section>
+<section class="contact" id="contact"><div class="wrap contactgrid">
+<div><div class="kicker">Direct Enquiry</div><h2>Let's connect about the farm.</h2><p>For product availability, orders, bulk enquiries or collaborations, contact Himalayan Agriculture directly.</p>
+<div class="actions"><a class="btn btn-primary" href="https://wa.me/917559699891" target="_blank">WhatsApp: +91 75596 99891</a><a class="btn btn-ghost" href="mailto:premarya.74294@gmail.com">Email Us</a></div></div>
+<div class="contactbox"><div class="contactline"><small>WHATSAPP</small><b>+91 75596 99891</b></div><div class="contactline"><small>EMAIL</small><b>premarya.74294@gmail.com</b></div><div class="contactline"><small>REGION</small><b>Himachal Pradesh, India</b></div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">© 2026 Himalayan Agriculture · Real farm photography · Himachal Pradesh</div></footer>
+<div class="modal" id="modal"><button class="close" id="close">×</button><img id="modalImg" alt=""></div>
+<script>
+const filters=[...document.querySelectorAll('.filter')], cards=[...document.querySelectorAll('.photo-card')];
+filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>c.classList.toggle('hide',f!=='All'&&c.dataset.category!==f));}));
+const modal=document.getElementById('modal'),modalImg=document.getElementById('modalImg');
+document.querySelectorAll('.photo-open').forEach(b=>b.addEventListener('click',()=>{modalImg.src=b.dataset.full;modalImg.alt=b.querySelector('img').alt;modal.classList.add('open')}));
+document.getElementById('close').onclick=()=>modal.classList.remove('open');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+document.onkeydown=e=>{if(e.key==='Escape')modal.classList.remove('open')};
+</script>
+</body>
+</html>
